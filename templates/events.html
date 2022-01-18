@@ -1,0 +1,81 @@
+{% load static %}
+{% load socialaccount %}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'media/favicon_blue.png' %}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Abhyuday, IIT Bombay</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+</head>
+
+<body>
+{% include 'messages.html' %}
+<div class="card">
+  <div class="products">
+    <div class="product active" product-id="1" product-color="#542F13">
+      <div class="thumbnail"><img src="{% static 'media/ei.png' %}" style="width: 244px;"></div>
+      <h1 class="title">Emotional Intelligence Workshop</h1>
+      <p class="description">
+        Emotional Intelligence (EI) is the ability for people to recognize, understand and perceive their own and other people's emotions as well as to regulate their own emotions. You will learn how to excel in self-awareness, performance under pressure, relationship management, self-management, and much more.
+        <br>
+        Date : 23rd January <br>
+        Time : 3:00 p.m - 4:00 p.m <br><br>
+        {% if not emotionalintelligence %}
+        <a class="btn" href="{% url 'app:ei'  %}" ripple="" ripple-color="#666666">Register Now</a>
+        {% else %}
+        <a class="btn"  ripple="" ripple-color="#666666">Registered</a>
+        {% endif %}
+      </p>
+    </div>
+    <div class="product" product-id="2" product-color="#D18B49">
+      <div class="thumbnail"><img src="{% static 'media/Samwaad.png' %}" style= "width: 244px;"></div>
+      <h1 class="title">Samwaad Group Discussion</h1>
+      <p class="description">
+        "A good discussion increases the dimensions of everyone who takes part." <br>
+        This is a series of 6 group discussions on various interesting topics ranging from social to general that one might want to think about and discuss. For more info, <a href="https://bit.ly/3F9DSuI">Click here</a><br>
+        Date : 22nd and 23rd January<br>
+        (Timings will be conveyed later)<br><br>
+        {% if not samwaad %}
+        <a class="btn" href="{% url 'app:samwaad'  %}" ripple="" ripple-color="#666666">Register Now</a>
+        {% else %}
+        <a class="btn" ripple="" ripple-color="#666666">Registered</a>
+        {% endif %}
+      </p>
+    </div>
+    <div class="product" product-id="3" product-color="#FADFD5">
+      <div class="thumbnail"><img src="{%  static 'images/staytune.gif' %}"/></div>
+      <h1 class="title">Coming Soon..</h1>
+      <p class="description">
+        Keep your eyes open and your inbox refreshed! More events coming soon.<br>
+        Stay Tuned !!
+        <br><br>
+      </p>
+    </div>
+   
+    </div>
+    <!-- <div class="product" product-id="5" product-color="#C4C8CB">
+      <div class="thumbnail"><img src=""/></div>
+      <h1 class="title">Coming Soon</h1>
+      <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    </div> -->
+
+  <div class="footer">
+    <a class="btn" id="prev" href="#" ripple="" ripple-color="#666666">Prev</a>
+    <a class="btn" id="next" href="#" ripple="" ripple-color="#666666">Next</a>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="{% static 'index.js' %}"></script>
+
+</body>
+</html>
